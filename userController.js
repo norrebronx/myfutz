@@ -9,7 +9,9 @@ if (process.env.REDISTOGO_URL) {
 
 exports.newUser =function(req, res){
 	var user = req.params.user
-  var email = req.body.email;
+  var email = req.body.email_name;
+  // console.log(user)
+  // console.log(email)
   redis.set(user, email, function(err, reply) {
     console.log(email);
   });
@@ -19,9 +21,10 @@ exports.newUser =function(req, res){
 
 exports.getUser = function(req, res) {
   var user = req.params.user
+  console.log(user)  
   redis.get(user, function(err, reply) {
     console.log(reply);
   });
-  res.send("ok");
+  res.render('pages/userinfo');
 
 }
