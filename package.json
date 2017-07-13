@@ -1,0 +1,30 @@
+{
+  "name": "myfutz",
+  "version": "0.2.6",
+  "description": "Futz clone",
+  "engines": {
+    "node": "6.11.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "2.5.6",
+    "express": "4.15.2",
+    "redis": "^2.7.1",
+    "sendgrid": "^4.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/norrebronx/myfutz.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}

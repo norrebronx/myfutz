@@ -1,0 +1,8 @@
+{
+  "name": "Myfutz",
+  "description": "A barebones Node.js app using Express 4",
+  "repository": "https://github.com/norrebronx/myfutz",
+  "logo": "",
+  "keywords": ["node", "express", "heroku", "futz"],
+  "image": "heroku/nodejs"
+}
