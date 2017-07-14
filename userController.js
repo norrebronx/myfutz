@@ -1,41 +1,24 @@
+var redis = require('./connection').connection;
 
 
 exports.newUser =function(req, res){
-  if (process.env.REDISTOGO_URL) {
-  var rtg   = require("url").parse(process.env.REDISTOGO_URL);
-  var redis = require("redis").createClient(rtg.port, rtg.hostname);
-
-  redis.auth(rtg.auth.split(":")[1]);
-} else {
-    var redis = require("redis").createClient();
-}
-
 	var user = req.params.user
   var email = req.body.email_name;
-  // console.log(user)
-  // console.log(email)
   redis.set(user, email, function(err, reply) {
-    console.log(email);
+    if(err) {
+      res.send("error");
+    } else {
+      res.send("ok");  
+    }
   });
-  
-   res.send("ok");
 };
 
 exports.getUser = function(req, res) {
-  if (process.env.REDISTOGO_URL) {
-  var rtg   = require("url").parse(process.env.REDISTOGO_URL);
-  var redis = require("redis").createClient(rtg.port, rtg.hostname);
-
-  redis.auth(rtg.auth.split(":")[1]);
-} else {
-    var redis = require("redis").createClient();
-}
-
   var user = req.params.user
-  console.log(user)  
-  redis.get(user, function(err, reply) {
-    console.log(reply);
-  });
-  res.render('pages/userinfo');
 
+  redis.get(user, function(err, reply) {
+    res.render('pages/userinfo', {
+      email: reply
+    });
+  });
 }

@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var userController = require('./userController');
-// var messageController = require('./messageController');
+var messageController = require('./messageController');
 
 var app = express();
 
@@ -22,7 +22,7 @@ app.set('view engine', 'ejs');
 
 app.get ('/:user/', userController.getUser);
 app.post('/:user/', userController.newUser);
-//app.get('/:user/:text(*)', messageController.send);
+app.get('/:user/:text(*)', messageController.send);
 
 
 app.listen(app.get('port'), function() {
