@@ -19,6 +19,8 @@ Your app should now be running on [localhost:5000](http://localhost:5000/).
 $ heroku create
 $ heroku addons:create sendgrid:starter
 $ heroku config:set SENDGRID_API_KEY=xxxx_api_key_xxxx
+$ heroku addons:create redistogo
+$ heroku config:set SENDGRID_FROM=email@from.com
 $ git push heroku master
 $ heroku open
 ```
